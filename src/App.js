@@ -6,6 +6,7 @@ function App() {
   const [listItems, setListItems] = useState([]);
   const [fetchError, setFetchError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const buttons = document.getElementsByTagName('button');
 
   useEffect(() => {
     const fetchRequest = async () => {
@@ -26,30 +27,40 @@ function App() {
     fetchRequest();
   }, [item]);
 
-  // const buttonType = document.getElementsByTagName("button");
-  // let type = buttonType.getAttribute('value');
+  const handleClick = (e) => {
+    e.preventDefault();
+    setItem(e.target.value);
+    console.log(buttons);
+    if (buttons) {
+      for (let i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove('active');
+      }
+      e.target.classList.add('active');
+    }
+  }
 
   return (
     <div className="main">
       <div className="app">
         <button
+          className="active"
           type="button"
           value="users"
-          onClick={(e) => {setItem(e.target.value)}}
+          onClick={(e) => handleClick(e)}
         >
           users
         </button>
         <button
           type="button"
           value="posts"
-          onClick={(e) => setItem(e.target.value)}
+          onClick={(e) => handleClick(e)}
         >
           posts
         </button>
         <button
           type="button"
           value="comments"
-          onClick={(e) => setItem(e.target.value)}
+          onClick={(e) => handleClick(e)}
         >
           comments
         </button>
