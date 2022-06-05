@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  min-width: 33.33%;
+  height: 2rem;
+}
+
+.active {
+  background-color: #353333;
+  color: #fff;
+}
