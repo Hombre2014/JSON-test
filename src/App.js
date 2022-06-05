@@ -28,9 +28,7 @@ function App() {
   }, [item]);
 
   const handleClick = (e) => {
-    e.preventDefault();
     setItem(e.target.value);
-    console.log(buttons);
     if (buttons) {
       for (let i = 0; i < buttons.length; i++) {
         buttons[i].classList.remove('active');
@@ -70,7 +68,6 @@ function App() {
         {fetchError && <p style={{ color: 'red' }}>{`Error: ${fetchError}`}</p>}
         {!fetchError && !isLoading && <ul>
           {listItems.map((item) => (
-
             <li key={item.id}>
               <p>{JSON.stringify({ item })}</p>
             </li>
