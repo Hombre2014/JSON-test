@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import Form from './Form';
+import List from './List';
 
 function App() {
   const API_URL = 'https://jsonplaceholder.typicode.com';
@@ -6,7 +8,6 @@ function App() {
   const [listItems, setListItems] = useState([]);
   const [fetchError, setFetchError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const buttons = document.getElementsByTagName('button');
 
   useEffect(() => {
     const fetchRequest = async () => {
@@ -27,54 +28,18 @@ function App() {
     fetchRequest();
   }, [item]);
 
-  const handleClick = (e) => {
-    setItem(e.target.value);
-    if (buttons) {
-      for (let i = 0; i < buttons.length; i++) {
-        buttons[i].classList.remove('active');
-      }
-      e.target.classList.add('active');
-    }
-  }
-
   return (
-    <div className="main">
-      <div className="app">
-        <button
-          className="active"
-          type="button"
-          value="users"
-          onClick={(e) => handleClick(e)}
-        >
-          users
-        </button>
-        <button
-          type="button"
-          value="posts"
-          onClick={(e) => handleClick(e)}
-        >
-          posts
-        </button>
-        <button
-          type="button"
-          value="comments"
-          onClick={(e) => handleClick(e)}
-        >
-          comments
-        </button>
-      </div>
-      <div className="body">
+    <main>
+      <Form item={item} setItem={setItem} />
+      <section>
         {isLoading && <p>Loading Items...</p>}
         {fetchError && <p style={{ color: 'red' }}>{`Error: ${fetchError}`}</p>}
-        {!fetchError && !isLoading && <ul>
-          {listItems.map((item) => (
-            <li key={item.id}>
-              <p>{JSON.stringify({ item })}</p>
-            </li>
-          ))}
-        </ul>}
-      </div>
-    </div>
+        {!fetchError && !isLoading &&
+        <List
+          listItems={listItems}
+        />}
+      </section>
+    </main>
   );
 }
 
