@@ -12,12 +12,6 @@ code {
     monospace;
 }
 
-.app {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 button {
   min-width: 33.33%;
   height: 2rem;
