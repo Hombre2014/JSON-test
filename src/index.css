@@ -21,3 +21,15 @@ button {
   background-color: #353333;
   color: #fff;
 }
+
+form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  
+}
+
+section {
+  margin-top: 3rem;
+}

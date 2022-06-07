@@ -1,8 +1,10 @@
+import Data from './Data';
+
 const ListItem = ({ item }) => {
   return (
-    <li>
-      <p>{JSON.stringify({ item })}</p>
-    </li>
+    <tr>
+      <Data data={JSON.stringify({ item })} />
+    </tr>
   )
 }
 
