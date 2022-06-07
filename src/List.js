@@ -2,13 +2,15 @@ import ListItem from './ListItem';
 
 const List = ({ listItems }) => {
   return (
-    <table>
-      <tbody>
-        {listItems.map((item) => (
-          <ListItem key={item.id} item={item} />
-        ))}
-      </tbody>
-    </table>
+    <div className="table-container">
+      <table>
+        <tbody>
+          {listItems.map((item) => (
+            <ListItem key={item.id} item={item} />
+          ))}
+        </tbody>
+      </table>
+    </div>
   )
 }
 
