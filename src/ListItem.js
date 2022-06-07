@@ -1,8 +1,14 @@
+import Data from './Data';
+
 const ListItem = ({ item }) => {
   return (
-    <li>
-      <p>{JSON.stringify({ item })}</p>
-    </li>
+    <tr>
+      {Object.entries(item).map(([key, value]) => {
+        return (
+          <Data key={key} cellData={JSON.stringify(value)} />
+        )
+      })}
+    </tr>
   )
 }
 

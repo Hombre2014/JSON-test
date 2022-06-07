@@ -30,7 +30,7 @@ function App() {
 
   return (
     <main>
-      <Form item={item} setItem={setItem} />
+      <Form item={item} setItem={setItem} className="clearfix" />
       <section>
         {isLoading && <p>Loading Items...</p>}
         {fetchError && <p style={{ color: 'red' }}>{`Error: ${fetchError}`}</p>}
